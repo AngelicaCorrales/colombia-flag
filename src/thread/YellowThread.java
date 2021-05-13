@@ -16,14 +16,19 @@ public class YellowThread extends Thread {
 	}
 	
 	public void run() {
-		while(true) {
-			
+		int i=0;
+		while(i<Flag.WIDTH) {
+			i++;
+			lineDown();
 		}
 	}
 	
 	public synchronized void lineDown() {
-		while(true) {
-
+		int i=1;
+		while(i<Flag.YELLOW_LENGHT) {
+			i++;
+			
+			flagui.fillFlag("");
 		}
 	}
 

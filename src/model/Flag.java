@@ -1,18 +1,15 @@
 package model;
 
 public class Flag {
-	private int rowYellow;
+	public final static int ROW_YELLOW=1;;
 	private int colYellow;
-	private char ch;
-	private int yellowLenght;
-	private int width;
+	public final static char CH=' ';
+	public final static int YELLOW_LENGHT=15;
+	public final static int WIDTH=200;
+	public final static int YELLOW_COLOR=104;
 	
 	public Flag() {
-		ch=' ';
-		rowYellow=1;
-		colYellow=1;
-		yellowLenght=15;
-		width=200;
+		colYellow=1;		
 		
 	}
 	public void advanceYellow() {
@@ -22,16 +19,5 @@ public class Flag {
 	public int getColYellow() {
 		return colYellow;
 	}
-	public char getCh() {
-		return ch;
-	}
-	public int getRowYellow() {
-		return rowYellow;
-	}
-	public int getYellowLenght() {
-		return yellowLenght;
-	}
-	public int getWidth() {
-		return width;
-	}
+	
 }

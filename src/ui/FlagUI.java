@@ -16,9 +16,17 @@ public class FlagUI {
 		System.out.print(ESC+"0G"+ESC+"0d");
 	}
 	
-	public void fillFlag(String str){
-		
-		System.out.println(str);
+	public void moveDown(int textFormat){
+		System.out.print(DOWN);
+		System.out.print(LEFT);		
+	}
+	
+	public void fillFlag(int textFormat) {
+		System.out.print(ESC+textFormat+"m"+Flag.CH);
+	}
+	public void moveRight(int textFormat, int posX, int posY){
+		System.out.print(ESC+posX+";"+posY+"H");
+			
 	}
 
 	public Flag getFlag() {

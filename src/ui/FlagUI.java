@@ -25,6 +25,7 @@ public class FlagUI {
 		System.out.print(ESC+textFormat+"m"+Flag.CH);
 	}
 	public void moveRight(int textFormat, int posX, int posY){
+		
 		System.out.print(ESC+posX+";"+posY+"H");
 			
 	}

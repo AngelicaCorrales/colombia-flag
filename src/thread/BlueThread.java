@@ -3,12 +3,12 @@ package thread;
 import model.Flag;
 import ui.FlagUI;
 
-public class YellowThread extends Thread {
+public class BlueThread extends Thread {
 	private Flag flag;
 	private FlagUI flagui;
 	private long sleep;
 
-	public YellowThread(Flag flg, FlagUI flgui, int slp) {
+	public BlueThread(Flag flg, FlagUI flgui, int slp) {
 		flag=flg;
 		flagui=flgui;
 		sleep=slp;
@@ -21,17 +21,17 @@ public class YellowThread extends Thread {
 			synchronized(flagui) {
 				i++;		
 
-				flagui.moveRight(Flag.YELLOW_COLOR, Flag.ROW_YELLOW, flag.getColYellow());
-				flagui.fillFlag(Flag.YELLOW_COLOR);
+				flagui.moveRight(Flag.BLUE_COLOR, Flag.ROW_BLUE, flag.getColBlue());
+				flagui.fillFlag(Flag.BLUE_COLOR);
 				try {
 					sleep(sleep);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
+
 				}
-				flag.advanceYellow();
+				flag.advanceBlue();
 
 				lineDown();
-				
 			}
 			try {
 				sleep(sleep);
@@ -40,24 +40,21 @@ public class YellowThread extends Thread {
 
 			}
 		}
-
 	}
 
-	public  void lineDown() {
+	public void lineDown() {
 
 		int i=0;
-		while(i<Flag.YELLOW_LENGHT) {
+		while(i<Flag.BLUE_LENGHT) {
 			i++;
-			flagui.moveDown(Flag.YELLOW_COLOR);
-			flagui.fillFlag(Flag.YELLOW_COLOR);
+			flagui.moveDown(Flag.BLUE_COLOR);
+			flagui.fillFlag(Flag.BLUE_COLOR);
 			try {
 				sleep(sleep);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-
 		}
 
 	}
-
 }

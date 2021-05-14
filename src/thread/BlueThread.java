@@ -18,37 +18,26 @@ public class BlueThread extends Thread {
 	public void run() {
 		int i=0;
 		while(i<Flag.WIDTH) {
-			synchronized(flagui) {
-				i++;		
-
-				flagui.moveRight(Flag.BLUE_COLOR, Flag.ROW_BLUE, flag.getColBlue());
-				flagui.fillFlag(Flag.BLUE_COLOR);
+			i++;
+			int j=0;
+			while(j<Flag.BLUE_LENGHT) {
+				j++;
+				synchronized(flagui) {
+					flagui.move(flag.getRowBlue(), flag.getColBlue());
+					flagui.fillFlag(Flag.BLUE_COLOR);
+				}
+				flag.setRowBlue(flag.getRowBlue()+1);
 				try {
 					sleep(sleep);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
-
 				}
-				flag.advanceBlue();
 
-				lineDown();
 			}
-		}
-	}
 
-	public void lineDown() {
+			flag.advanceColBlue();
+			flag.setRowBlue(Flag.ROW_BLUE);
 
-		int i=0;
-		while(i<Flag.BLUE_LENGHT) {
-			i++;
-			flagui.moveDown(Flag.BLUE_COLOR);
-			flagui.fillFlag(Flag.BLUE_COLOR);
-			try {
-				sleep(sleep);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-
-	}
+		}	
+	}	
 }

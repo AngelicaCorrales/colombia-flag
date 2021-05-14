@@ -2,7 +2,7 @@ package model;
 
 public class Flag {
 	public final static char CH=' ';
-	public final static int WIDTH=50;
+	public final static int WIDTH=100;
 	
 	//Yellow
 	private int colYellow;
@@ -14,14 +14,14 @@ public class Flag {
 	//Blue
 	private int colBlue;
 	private int rowBlue;
-	public final static int ROW_BLUE=12;
+	public final static int ROW_BLUE=11;
 	public final static int BLUE_LENGHT=6;
 	public final static int BLUE_COLOR=44;
 	
 	//Red
 	private int colRed;
 	private int rowRed;
-	public final static int ROW_RED=19;
+	public final static int ROW_RED=17;
 	public final static int RED_LENGHT=6;
 	public final static int RED_COLOR=41;
 	
@@ -43,17 +43,18 @@ public class Flag {
 	public int getRowRed() {
 		return rowRed;
 	}
-	public void advanceYellow() {
+	public void advanceColYellow() {
 		colYellow++;
 	}
 	
-	public void advanceBlue() {
+	public void advanceColBlue() {
 		colBlue++;
 	}
 	
-	public void advanceRed() {
+	public void advanceColRed() {
 		colRed++;
 	}
+		
 	public int getColYellow() {
 		return colYellow;
 	}
@@ -62,6 +63,15 @@ public class Flag {
 	}
 	public int getColRed() {
 		return colRed;
+	}
+	public void setRowYellow(int rowYellow) {
+		this.rowYellow = rowYellow;
+	}
+	public void setRowBlue(int rowBlue) {
+		this.rowBlue = rowBlue;
+	}
+	public void setRowRed(int rowRed) {
+		this.rowRed = rowRed;
 	}
 	
 }

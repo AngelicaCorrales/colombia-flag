@@ -11,14 +11,13 @@ public class Main {
 		Flag flag=new Flag();
 		FlagUI flagui=new FlagUI(flag);
 		flagui.clearScreen();
-		YellowThread yellow=new YellowThread(flag, flagui,25);
-		BlueThread blue=new BlueThread(flag, flagui,50);
-		RedThread red=new RedThread(flag, flagui,100);
+		YellowThread yellow=new YellowThread(flag, flagui,15);
+		BlueThread blue=new BlueThread(flag, flagui,30);
+		RedThread red=new RedThread(flag, flagui,50);
 		yellow.start();
 		blue.start();
 		red.start();
-		
-		
+				
 	}
 
 }

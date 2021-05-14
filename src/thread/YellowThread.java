@@ -18,46 +18,28 @@ public class YellowThread extends Thread {
 	public void run() {
 		int i=0;
 		while(i<Flag.WIDTH) {
-			synchronized(flagui) {
-				i++;		
-
-				flagui.moveRight(Flag.YELLOW_COLOR, Flag.ROW_YELLOW, flag.getColYellow());
-				flagui.fillFlag(Flag.YELLOW_COLOR);
+			i++;
+			int j=0;
+			while(j<Flag.YELLOW_LENGHT) {
+				j++;
+				synchronized(flagui) {
+					flagui.move(flag.getRowYellow(), flag.getColYellow());
+					flagui.fillFlag(Flag.YELLOW_COLOR);
+				}
+				flag.setRowYellow(flag.getRowYellow()+1);
 				try {
 					sleep(sleep);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				flag.advanceYellow();
-
-				lineDown();
-				
-			}
-			try {
-				sleep(sleep);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
 
 			}
-		}
 
-	}
-
-	public  void lineDown() {
-
-		int i=0;
-		while(i<Flag.YELLOW_LENGHT) {
-			i++;
-			flagui.moveDown(Flag.YELLOW_COLOR);
-			flagui.fillFlag(Flag.YELLOW_COLOR);
-			try {
-				sleep(sleep);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			flag.advanceColYellow();
+			flag.setRowYellow(Flag.ROW_YELLOW);
 
 		}
-
+		
 	}
 
 }

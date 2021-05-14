@@ -12,49 +12,31 @@ public class RedThread extends Thread{
 		flag=flg;
 		flagui=flgui;
 		sleep=slp;
-		
 	}
 	
 	public void run() {
 		int i=0;
 		while(i<Flag.WIDTH) {
-			synchronized(flagui) {
-				i++;		
-
-				flagui.moveRight(Flag.RED_COLOR, Flag.ROW_RED, flag.getColRed());
-				flagui.fillFlag(Flag.RED_COLOR);
+			i++;
+			int j=0;
+			while(j<Flag.RED_LENGHT) {
+				j++;
+				synchronized(flagui) {
+					flagui.move(flag.getRowRed(), flag.getColRed());
+					flagui.fillFlag(Flag.RED_COLOR);
+				}
+				flag.setRowRed(flag.getRowRed()+1);
 				try {
 					sleep(sleep);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
-
 				}
-				flag.advanceRed();
-
-				lineDown();
-			}
-			try {
-				sleep(sleep);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
 
 			}
+
+			flag.advanceColRed();
+			flag.setRowRed(Flag.ROW_RED);
 		}
 	}
 
-	public void lineDown() {
-
-		int i=0;
-		while(i<Flag.RED_LENGHT) {
-			i++;
-			flagui.moveDown(Flag.RED_COLOR);
-			flagui.fillFlag(Flag.RED_COLOR);
-			try {
-				sleep(sleep);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-
-	}
 }

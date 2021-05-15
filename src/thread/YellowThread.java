@@ -8,7 +8,7 @@ public class YellowThread extends Thread {
 	private FlagUI flagui;
 	private long sleep;
 
-	public YellowThread(Flag flg, FlagUI flgui, int slp) {
+	public YellowThread(Flag flg, FlagUI flgui, long slp) {
 		flag=flg;
 		flagui=flgui;
 		sleep=slp;

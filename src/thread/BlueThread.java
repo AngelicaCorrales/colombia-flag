@@ -8,7 +8,7 @@ public class BlueThread extends Thread {
 	private FlagUI flagui;
 	private long sleep;
 
-	public BlueThread(Flag flg, FlagUI flgui, int slp) {
+	public BlueThread(Flag flg, FlagUI flgui, long slp) {
 		flag=flg;
 		flagui=flgui;
 		sleep=slp;

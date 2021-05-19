@@ -4,74 +4,35 @@ public class Flag {
 	public final static char CH=' ';
 	public final static int WIDTH=100;
 	
-	//Yellow
-	private int colYellow;
-	private int rowYellow;
-	public final static int ROW_YELLOW=1;
-	public final static int YELLOW_LENGHT=10;
-	public final static int YELLOW_COLOR=43;
 	
-	//Blue
-	private int colBlue;
-	private int rowBlue;
-	public final static int ROW_BLUE=11;
-	public final static int BLUE_LENGHT=6;
-	public final static int BLUE_COLOR=44;
+	//Yellow, blue, red
+	public final static int[]ROWS= new int[] {1,11,17};
+	public final static int[]LENGHTS= new int[] {10,6,6};
+	public final static int[]COLORS= new int[] {43,44,41};
+	private int[] cols;
+	private int[] rows;
 	
-	//Red
-	private int colRed;
-	private int rowRed;
-	public final static int ROW_RED=17;
-	public final static int RED_LENGHT=6;
-	public final static int RED_COLOR=41;
+	
 	
 	public Flag() {
-		colYellow=1;
-		colBlue=1;
-		colRed=1;
-		rowYellow=ROW_YELLOW;
-		rowBlue=ROW_BLUE;
-		rowRed=ROW_RED;
+		cols=new int[] {1,1,1};
+		rows=new int[] {ROWS[0],ROWS[1],ROWS[2]};
+		
 		
 	}
-	public int getRowYellow() {
-		return rowYellow;
-	}
-	public int getRowBlue() {
-		return rowBlue;
-	}
-	public int getRowRed() {
-		return rowRed;
-	}
-	public void advanceColYellow() {
-		colYellow++;
+	
+	public int[] getCols() {
+		return cols;
 	}
 	
-	public void advanceColBlue() {
-		colBlue++;
+	public void setCol(int i,int col) {
+		cols[i]=col;
 	}
-	
-	public void advanceColRed() {
-		colRed++;
+	public int[] getRows() {
+		return rows;
 	}
-		
-	public int getColYellow() {
-		return colYellow;
-	}
-	public int getColBlue() {
-		return colBlue;
-	}
-	public int getColRed() {
-		return colRed;
-	}
-	public void setRowYellow(int rowYellow) {
-		this.rowYellow = rowYellow;
-	}
-	public void setRowBlue(int rowBlue) {
-		this.rowBlue = rowBlue;
-	}
-	public void setRowRed(int rowRed) {
-		this.rowRed = rowRed;
+	public void setRow(int i,int row) {
+		rows[i]=row;
 	}
 	
 }
